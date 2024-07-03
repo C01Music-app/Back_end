@@ -74,9 +74,9 @@ public class SecurityConfig {
                         .requestMatchers("/auth/login**").permitAll()
 //
 //
-                        .requestMatchers(HttpMethod.GET, "/user/**").permitAll()
+                        .requestMatchers(HttpMethod.GET, "/user/**").hasAnyAuthority("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/user/**").permitAll()
-                        .requestMatchers(HttpMethod.PUT, "/user/**").permitAll()
+                        .requestMatchers(HttpMethod.PUT, "/user/**").hasAnyAuthority("USER")
 //                        .requestMatchers(HttpMethod.DELETE, "/api/user/**").hasAnyAuthority("ADMIN")
 //                        .requestMatchers(HttpMethod.PUT, "/api/user/**").hasAnyAuthority("ADMIN")
 //                        .requestMatchers(HttpMethod.POST, "/api/user/**").hasAnyAuthority("ADMIN")
