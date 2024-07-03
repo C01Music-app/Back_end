@@ -23,6 +23,7 @@ public class Album {
     @ManyToOne
     @JoinColumn(name = "songs_id", referencedColumnName = "id")
     private Songs songs;
+
     private String impAlbum;
 
 }
