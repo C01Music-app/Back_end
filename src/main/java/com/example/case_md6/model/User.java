@@ -9,6 +9,8 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Set;
+
 @Entity
 @Data
 @NoArgsConstructor
@@ -25,6 +27,8 @@ public class User {
     private String email;
     private String password;
     private String img;
+    @ManyToMany(fetch = FetchType.EAGER)
+    private Set<Role> roles;
 
 
 
