@@ -33,6 +33,5 @@ public class Songs {
     private String lyrics;
     private Integer listens;
     private Integer likes;
-//    @OneToMany(mappedBy = "songs")
-//    private Set<Genres> genres;
+
 }
