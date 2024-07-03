@@ -1,5 +1,6 @@
 package com.example.case_md6.controller;
 
+
 import com.example.case_md6.model.Artists;
 import com.example.case_md6.service.aristsService.IArtistsService;
 import org.springframework.beans.factory.annotation.Autowired;
