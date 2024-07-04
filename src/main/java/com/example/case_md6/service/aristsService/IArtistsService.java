@@ -1,6 +1,9 @@
 package com.example.case_md6.service.aristsService;
 
 import com.example.case_md6.model.Artists;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+
 import java.util.List;
 
 public interface IArtistsService {
@@ -16,6 +19,6 @@ public interface IArtistsService {
     void deleteArtist(Integer id);
 
 
-    List<Artists> findArtistsByName(String name);
+    Page<Artists> findArtistsByName(Pageable pageable, String name);
 
 }
