@@ -23,9 +23,9 @@ public class Songs {
     private Integer id;
     private String title;
     private String artist;
-    @ManyToOne
-    @JoinColumn(name = "album_id", referencedColumnName = "id")
-    private Album album;
+//    @ManyToOne
+//    @JoinColumn(name = "album_id", referencedColumnName = "id")
+//    private Album album;
 
     private String category;
     private String time;

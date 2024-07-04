@@ -3,6 +3,8 @@ package com.example.case_md6.service.aristsService;
 import com.example.case_md6.model.Artists;
 import com.example.case_md6.repository.artistsRepository.IArtistsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -39,8 +41,9 @@ public class ArtistsService implements IArtistsService {
     }
 
     @Override
-    public List<Artists> findArtistsByName(String name) {
-        return artistsRepository.findByNameContainingIgnoreCase(name);
+    public Page<Artists> findArtistsByName(Pageable pageable, String name) {
+        return artistsRepository.findbyNamePage(pageable,"%"+name+"%");
     }
+
 
 }

@@ -1,8 +1,12 @@
 package com.example.case_md6.controller;
 
+
 import com.example.case_md6.model.Artists;
 import com.example.case_md6.service.aristsService.IArtistsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,7 +15,7 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/Artists")
+@RequestMapping("/artists")
 public class ArtistsController {
 
     @Autowired
@@ -47,8 +51,10 @@ public class ArtistsController {
 
     // Tìm kiếm nghệ sĩ theo tên
     @GetMapping("/search")
-    public ResponseEntity<List<Artists>> searchArtistsByName(@RequestParam String name) {
-        List<Artists> artists = artistsService.findArtistsByName(name);
+    public ResponseEntity<?> searchArtistsByName(@RequestParam(defaultValue = "0") int page,
+                                                 @RequestParam(defaultValue = "") String name) {
+        Pageable pageable = PageRequest.of(page, 5);
+        Page<Artists> artists = artistsService.findArtistsByName(pageable,name);
         return new ResponseEntity<>(artists, HttpStatus.OK);
     }
 }
