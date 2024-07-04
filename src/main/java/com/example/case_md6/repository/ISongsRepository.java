@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface ISongsRepository extends JpaRepository<Songs, Integer> {
 
-    @Query(value = " select * from songs where username like :name",
+    @Query(value = " select * from songs where name like :name",
             nativeQuery = true)
     Page<Songs> getAllPage(Pageable pageable, @Param("name") String name);
 

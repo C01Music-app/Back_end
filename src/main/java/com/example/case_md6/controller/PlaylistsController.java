@@ -4,6 +4,9 @@ package com.example.case_md6.controller;
 import com.example.case_md6.model.Playlists;
 import com.example.case_md6.service.playlistsService.IPlaylistsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -58,8 +61,10 @@ public class PlaylistsController {
 
     // Tìm kiếm danh sách phát theo tiêu đề
     @GetMapping("/search")
-    public ResponseEntity<List<Playlists>> searchPlaylistsByTitle(@RequestParam String title) {
-        List<Playlists> playlists = playlistsService.findPlaylistsByTitle(title);
+    public ResponseEntity<?> searchPlaylistsByTitle(@RequestParam(defaultValue = "0") int page,
+                                                                  @RequestParam(defaultValue = "") String name) {
+        Pageable pageable = PageRequest.of(page, 5);
+        Page<Playlists> playlists = playlistsService.findPlaylistsByTitle(pageable,name);
         return new ResponseEntity<>(playlists, HttpStatus.OK);
     }
 }

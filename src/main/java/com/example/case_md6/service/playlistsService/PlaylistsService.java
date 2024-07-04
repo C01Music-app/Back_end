@@ -4,6 +4,8 @@ package com.example.case_md6.service.playlistsService;
 import com.example.case_md6.model.Playlists;
 import com.example.case_md6.repository.playlistsRepository.IPlaylistsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -36,7 +38,9 @@ public class PlaylistsService implements IPlaylistsService {
     }
 
     @Override
-    public List<Playlists> findPlaylistsByTitle(String title) {
-        return playlistsRepository.findByTitleContainingIgnoreCase(title);
+    public Page<Playlists> findPlaylistsByTitle(Pageable pageable, String name) {
+        return playlistsRepository.findByNamePage(pageable,"%"+name+"%");
     }
+
+
 }

@@ -22,10 +22,9 @@ public class Artists {
     @ManyToOne
     @JoinColumn(name = "songs_id", referencedColumnName = "id")
     private Songs songs;
-    @ManyToOne
-    @JoinColumn(name = "album_id", referencedColumnName = "id")
-    private Album album;
-
+//    @ManyToOne
+//    @JoinColumn(name = "album_id", referencedColumnName = "id")
+//    private Album album;
 
 
 }
