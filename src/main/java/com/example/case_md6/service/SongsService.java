@@ -17,7 +17,7 @@ public class SongsService implements ISongsService {
 
     @Override
     public Page<Songs> getAllPage(Pageable pageable, String name) {
-        return iSongsRepository.getAllPage(pageable,"%"+name+"%");
+        return iSongsRepository.findAllByTitleContaining(pageable, name);
     }
 
     @Override

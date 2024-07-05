@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -21,6 +22,7 @@ public class Songs {
     //bài hát
 
     private Integer id;
+    private String imgSongs;
     private String title;
     private String artist;
 //    @ManyToOne
@@ -29,7 +31,7 @@ public class Songs {
 
     private String category;
     private String time;
-    private Date dateStart;
+    private LocalDate dateStart;
     private String lyrics;
     private Integer listens;
     private Integer likes;
