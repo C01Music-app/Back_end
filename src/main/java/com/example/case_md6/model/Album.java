@@ -28,7 +28,7 @@ public class Album {
     @JoinColumn(name = "songs_id", referencedColumnName = "id")
     private Songs songs;
 
-
+    @Column(columnDefinition = "text")
     private String impAlbum;
 
 }

@@ -26,6 +26,7 @@ public class User {
     private String phone;
     private String email;
     private String password;
+    @Column(columnDefinition = "text")
     private String img;
     @ManyToMany (fetch = FetchType.EAGER)
     private Set<Role> roles;

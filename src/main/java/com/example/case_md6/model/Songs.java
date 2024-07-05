@@ -30,6 +30,7 @@ public class Songs {
     private String category;
     private String time;
     private Date dateStart;
+    @Column(columnDefinition = "text")
     private String lyrics;
     private Integer listens;
     private Integer likes;
