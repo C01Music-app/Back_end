@@ -1,6 +1,7 @@
 package com.example.case_md6.config.service;
 
 
+
 import com.example.case_md6.config.UserPrinciple;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.io.Decoders;
@@ -10,7 +11,6 @@ import org.springframework.stereotype.Service;
 
 import java.security.Key;
 import java.util.Date;
-
 @Service
 public class JwtService {
     private static final String SECRET_KEY = "123456789987654321123456789987654321123456789";

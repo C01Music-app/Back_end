@@ -15,7 +15,7 @@ import java.util.List;
 @RestController
 @CrossOrigin("*")
 
-@RequestMapping("/Songs")
+@RequestMapping("/songs")
 public class SongsController {
     @Autowired
     private ISongsService iSongsService;
@@ -37,7 +37,7 @@ public class SongsController {
     @GetMapping("/{id}")
     public ResponseEntity<?> ByIdSongs(@PathVariable Integer id) {
         Songs songs = iSongsService.findById(id);
-        return new ResponseEntity<>(songs,HttpStatus.OK);
+        return new ResponseEntity<>(songs, HttpStatus.OK);
     }
 
     @DeleteMapping("remove/{id}")
@@ -45,6 +45,13 @@ public class SongsController {
         Songs songs = iSongsService.findById(id);
         iSongsService.removeSongs(songs);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @GetMapping("detail/{id}")
+    public ResponseEntity<?> detailSongs(@PathVariable Integer id) {
+        Songs songs = iSongsService.findById(id);
+        iSongsService.detail(songs);
+        return new ResponseEntity<>(songs, HttpStatus.OK);
     }
 
 }

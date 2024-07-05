@@ -1,8 +1,12 @@
 package com.example.case_md6.controller;
 
 import com.example.case_md6.model.Album;
+import com.example.case_md6.model.Songs;
 import com.example.case_md6.service.IAlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,18 +15,26 @@ import java.util.List;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping("/Album")
+@RequestMapping("/album")
 public class AlbumController {
     @Autowired
     private IAlbumService iAlbumService;
 
+//    @GetMapping("")
+//    public ResponseEntity<?> showAlbum() {
+//        List<Album> albumList = iAlbumService.getAll();
+//        System.out.println(albumList);
+//        return new ResponseEntity<>(albumList, HttpStatus.OK);
+//    }
+
+
     @GetMapping("")
-    public ResponseEntity<?> showAlbum() {
-        List<Album> albumList = iAlbumService.getAll();
-        System.out.println(albumList);
+    public ResponseEntity<?> showAlbum(@RequestParam(defaultValue = "0") int page,
+                                       @RequestParam(defaultValue = "") String name) {
+        Pageable pageable = PageRequest.of(page, 5);
+        Page<Album> albumList = iAlbumService.getAllPage(pageable, name);
         return new ResponseEntity<>(albumList, HttpStatus.OK);
     }
-
 
     @GetMapping("/{id}")
     public ResponseEntity<?> byIdAlbum(@PathVariable Integer id) {
@@ -57,4 +69,6 @@ public class AlbumController {
         iAlbumService.remove(album);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+
 }
