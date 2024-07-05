@@ -17,6 +17,7 @@ public class Artists {
     //Nghệ Sĩ
     private Integer id;
     private String name;
+    @Column(columnDefinition = "text")
     private String img;
     private String info;
     @ManyToOne
