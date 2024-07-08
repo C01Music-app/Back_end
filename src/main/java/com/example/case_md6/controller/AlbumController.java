@@ -26,11 +26,7 @@ public class AlbumController {
 //        System.out.println(albumList);
 //        return new ResponseEntity<>(albumList, HttpStatus.OK);
 //    }
-    @GetMapping("")
-    public ResponseEntity<?> oke() {
 
-        return null;
-    }
 
     @GetMapping("")
     public ResponseEntity<?> showAlbum(@RequestParam(defaultValue = "0") int page,
