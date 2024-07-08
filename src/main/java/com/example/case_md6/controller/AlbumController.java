@@ -20,13 +20,17 @@ public class AlbumController {
     @Autowired
     private IAlbumService iAlbumService;
 
-//    @GetMapping("")
+    //    @GetMapping("")
 //    public ResponseEntity<?> showAlbum() {
 //        List<Album> albumList = iAlbumService.getAll();
 //        System.out.println(albumList);
 //        return new ResponseEntity<>(albumList, HttpStatus.OK);
 //    }
+    @GetMapping("")
+    public ResponseEntity<?> oke() {
 
+        return null;
+    }
 
     @GetMapping("")
     public ResponseEntity<?> showAlbum(@RequestParam(defaultValue = "0") int page,
