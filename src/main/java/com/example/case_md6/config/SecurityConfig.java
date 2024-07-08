@@ -72,13 +72,14 @@ public class SecurityConfig {
         return http.csrf(AbstractHttpConfigurer::disable)
                 .addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
                 .authorizeHttpRequests(auth -> auth
-                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+//                        .requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                         .requestMatchers("/auth/login**").permitAll()
 //
 //
                         .requestMatchers(HttpMethod.GET, "/user/**").hasAnyAuthority("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/user/**").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/user/**").hasAnyAuthority("USER")
+                                .requestMatchers("/**").permitAll()
 //
 
 

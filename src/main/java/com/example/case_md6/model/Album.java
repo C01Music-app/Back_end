@@ -22,7 +22,7 @@ public class Album {
     private String title;
     private String artists;
     private String category;
-    private Date dateStart;
+    private LocalDate dateStart;
 
     @ManyToOne
     @JoinColumn(name = "songs_id", referencedColumnName = "id")

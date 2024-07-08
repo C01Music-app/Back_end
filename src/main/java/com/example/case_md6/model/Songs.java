@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -18,19 +19,22 @@ public class Songs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    //bài hát
 
     private Integer id;
+    @Column(columnDefinition = "text")
+    private String imgSongs;
     private String title;
     private String artist;
-//    @ManyToOne
-//    @JoinColumn(name = "album_id", referencedColumnName = "id")
-//    private Album album;
+
 
     private String category;
     private String time;
-    private Date dateStart;
+
+    private LocalDate dateStart;
+
+
     @Column(columnDefinition = "text")
+
     private String lyrics;
     private Integer listens;
     private Integer likes;

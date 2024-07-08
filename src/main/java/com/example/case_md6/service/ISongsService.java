@@ -18,4 +18,7 @@ public interface ISongsService {
 
     void removeSongs(Songs songs);
 
+
+    void detail(Songs songs);
+
 }
