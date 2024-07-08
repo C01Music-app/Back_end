@@ -17,7 +17,7 @@ public class SongsService implements ISongsService {
 
     @Override
     public Page<Songs> getAllPage(Pageable pageable, String name) {
-        return iSongsRepository.getAllPage(pageable,"%"+name+"%");
+        return iSongsRepository.findAll(pageable);
     }
 
     @Override
@@ -34,4 +34,11 @@ public class SongsService implements ISongsService {
     public void removeSongs(Songs songs) {
         iSongsRepository.delete(songs);
     }
+
+    @Override
+    public void detail(Songs songs) {
+        iSongsRepository.findById(songs.getId());
+    }
+
+
 }

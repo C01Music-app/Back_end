@@ -19,22 +19,22 @@ public class Songs {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
-    //bài hát
 
     private Integer id;
+    @Column(columnDefinition = "text")
+    private String imgSongs;
     private String title;
     private String artist;
-//    @ManyToOne
-//    @JoinColumn(name = "album_id", referencedColumnName = "id")
-//    private Album album;
-@Column(columnDefinition = "text")
-private String imgSongs;
+
+
     private String category;
     private String time;
+
     private LocalDate dateStart;
+
+
     @Column(columnDefinition = "text")
     private String lyrics;
-    @Column(columnDefinition = "text")
     private Integer listens;
     private Integer likes;
 
