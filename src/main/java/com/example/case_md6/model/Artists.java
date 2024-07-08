@@ -21,7 +21,7 @@ public class Artists {
     private String img;
     private String info;
     @ManyToOne
-    @JoinColumn(name = "songs_id", referencedColumnName = "id")
+    @JoinColumn(name = "songs_id")
     private Songs songs;
 //    @ManyToOne
 //    @JoinColumn(name = "album_id", referencedColumnName = "id")

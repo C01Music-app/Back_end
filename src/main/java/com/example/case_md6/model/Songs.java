@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.util.Date;
 import java.util.Set;
 
@@ -26,12 +27,14 @@ public class Songs {
 //    @ManyToOne
 //    @JoinColumn(name = "album_id", referencedColumnName = "id")
 //    private Album album;
-
+@Column(columnDefinition = "text")
+private String imgSongs;
     private String category;
     private String time;
-    private Date dateStart;
+    private LocalDate dateStart;
     @Column(columnDefinition = "text")
     private String lyrics;
+    @Column(columnDefinition = "text")
     private Integer listens;
     private Integer likes;
 

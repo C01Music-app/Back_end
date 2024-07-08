@@ -79,9 +79,8 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET, "/user/**").hasAnyAuthority("ADMIN")
                         .requestMatchers(HttpMethod.POST, "/user/**").permitAll()
                         .requestMatchers(HttpMethod.PUT, "/user/**").hasAnyAuthority("USER")
+                                .requestMatchers("/**").permitAll()
 //
-
-
 
 
                 )
