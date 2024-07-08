@@ -34,7 +34,6 @@ public class Songs {
 
 
     @Column(columnDefinition = "text")
-
     private String lyrics;
     private Integer listens;
     private Integer likes;
