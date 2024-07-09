@@ -21,4 +21,7 @@ public interface IAlbumService {
 
     Page<Album> getAllPage(Pageable pageable, String name);
 
+
+    List<Album> findAlbumsByName(String name);
+
 }

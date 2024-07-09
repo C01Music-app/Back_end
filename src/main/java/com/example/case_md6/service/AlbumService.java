@@ -41,4 +41,9 @@ public class AlbumService implements IAlbumService{
         return iAlbumRepository.findAllByTitleContaining(pageable,name);
     }
 
+    @Override
+    public List<Album> findAlbumsByName(String name) {
+        return iAlbumRepository.findByTitleContainingIgnoreCase(name);
+    }
+
 }
