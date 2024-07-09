@@ -83,8 +83,6 @@ public class SecurityConfig {
 //
 
 
-
-
                 )
                 .exceptionHandling(customizer -> customizer.accessDeniedHandler(customAccessDeniedHandler()))
                 .sessionManagement(sess -> sess.sessionCreationPolicy(SessionCreationPolicy.STATELESS))

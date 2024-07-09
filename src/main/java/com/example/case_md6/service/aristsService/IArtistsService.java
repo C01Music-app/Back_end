@@ -18,7 +18,9 @@ public interface IArtistsService {
     
     void deleteArtist(Integer id);
 
+    List<Artists> findArtistsByName(String name);
 
-    Page<Artists> findArtistsByName(Pageable pageable, String name);
+
+//    Page<Artists> findArtistsByName(Pageable pageable, String name);
 
 }

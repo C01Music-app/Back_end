@@ -1,6 +1,7 @@
 package com.example.case_md6.service;
 
 import com.example.case_md6.model.Album;
+import com.example.case_md6.model.Artists;
 import com.example.case_md6.model.Songs;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -19,5 +20,8 @@ public interface IAlbumService {
 
 
     Page<Album> getAllPage(Pageable pageable, String name);
+
+
+    List<Album> findAlbumsByName(String name);
 
 }
