@@ -76,4 +76,5 @@ public class AlbumController {
         List<Album> albums = iAlbumService.findAlbumsByName(name);
         return new ResponseEntity<>(albums, HttpStatus.OK);
     }
+
 }

@@ -20,6 +20,7 @@ public interface IPlaylistsService {
     void deletePlaylist(Integer id);
 
 
-    Page<Playlists> findPlaylistsByTitle(Pageable pageable, String name);
+//    Page<Playlists> findPlaylistsByTitle(Pageable pageable, String name);
 
+    List<Playlists> findPlayListByName(String name);
 }
