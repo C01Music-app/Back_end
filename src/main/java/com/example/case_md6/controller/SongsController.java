@@ -21,12 +21,20 @@ public class SongsController {
     @Autowired
     private ISongsService iSongsService;
 
+//    @GetMapping("")
+//    public ResponseEntity<?> showSongs(@RequestParam(defaultValue = "0") int page,
+//                                       @RequestParam(defaultValue = "") String name) {
+//        Pageable pageable = PageRequest.of(page, 5);
+//        Page<Songs> songsList = iSongsService.getAllPage(pageable, name);
+//        return new ResponseEntity<>(songsList, HttpStatus.OK);
+//    }
+
+
     @GetMapping("")
-    public ResponseEntity<?> showSongs(@RequestParam(defaultValue = "0") int page,
-                                       @RequestParam(defaultValue = "") String name) {
-        Pageable pageable = PageRequest.of(page, 5);
-        Page<Songs> songsList = iSongsService.getAllPage(pageable, name);
-        return new ResponseEntity<>(songsList, HttpStatus.OK);
+    public ResponseEntity<?> AllSongs() {
+        List<Songs> songs = iSongsService.findAll();
+        System.out.println(songs);
+        return new ResponseEntity<>(songs, HttpStatus.OK);
     }
 
     @PostMapping("/create")

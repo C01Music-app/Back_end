@@ -23,4 +23,6 @@ public interface ISongsService {
 
     List<Songs> findSongsByName(String name);
 
+    List<Songs> findAll();
+
 }

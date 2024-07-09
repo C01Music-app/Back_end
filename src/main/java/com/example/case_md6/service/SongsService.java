@@ -45,5 +45,10 @@ public class SongsService implements ISongsService {
         return iSongsRepository.findByTitleContainingIgnoreCase(name);
     }
 
+    @Override
+    public List<Songs> findAll() {
+        return iSongsRepository.findAllSongs();
+    }
+
 
 }
