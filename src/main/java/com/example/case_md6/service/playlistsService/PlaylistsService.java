@@ -37,9 +37,14 @@ public class PlaylistsService implements IPlaylistsService {
         playlistsRepository.deleteById(id);
     }
 
+//    @Override
+//    public Page<Playlists> findPlaylistsByTitle(Pageable pageable, String name) {
+//        return playlistsRepository.findByNamePage(pageable,"%"+name+"%");
+//    }
+
     @Override
-    public Page<Playlists> findPlaylistsByTitle(Pageable pageable, String name) {
-        return playlistsRepository.findByNamePage(pageable,"%"+name+"%");
+    public List<Playlists> findPlayListByName(String name) {
+        return playlistsRepository.findByTitleContainingIgnoreCase(name);
     }
 
 

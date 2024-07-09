@@ -1,6 +1,7 @@
 package com.example.case_md6.controller;
 
 
+import com.example.case_md6.model.Artists;
 import com.example.case_md6.model.Playlists;
 import com.example.case_md6.service.playlistsService.IPlaylistsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -59,12 +60,9 @@ public class PlaylistsController {
         }
     }
 
-    // Tìm kiếm danh sách phát theo tiêu đề
     @GetMapping("/search")
-    public ResponseEntity<?> searchPlaylistsByTitle(@RequestParam(defaultValue = "0") int page,
-                                                                  @RequestParam(defaultValue = "") String name) {
-        Pageable pageable = PageRequest.of(page, 5);
-        Page<Playlists> playlists = playlistsService.findPlaylistsByTitle(pageable,name);
+    public ResponseEntity<List<Playlists>> searchPlayListByName(@RequestParam String name) {
+        List<Playlists> playlists = playlistsService.findPlayListByName(name);
         return new ResponseEntity<>(playlists, HttpStatus.OK);
     }
 }
