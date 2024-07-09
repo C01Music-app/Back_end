@@ -31,4 +31,13 @@ public class UserSer  implements IUserService{
 
     }
 
+    @Override
+    public void deleteById(Integer id) {
+        userRepository.deleteById(id);
+    }
+
+    @Override
+    public User findByUsername(String username) {
+        return userRepository.findByUserName(username);
+    }
 }

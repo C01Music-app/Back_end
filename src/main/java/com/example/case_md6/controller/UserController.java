@@ -42,4 +42,14 @@ public class UserController {
         userService.save(user);
         return new ResponseEntity<>(HttpStatus.OK);
     }
+    @GetMapping("/search/{username}")
+    public ResponseEntity<?> searchUserByName(@PathVariable String username) {
+        List<User> userList = userService.findAll();
+        for (User user : userList) {
+            if(user.getUserName().equals(username)){
+                return ResponseEntity.badRequest().build();
+            }
+        }
+        return new ResponseEntity<>("ok",HttpStatus.OK);
+    }
 }

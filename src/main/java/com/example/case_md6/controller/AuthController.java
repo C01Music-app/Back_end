@@ -5,6 +5,7 @@ import com.example.case_md6.config.service.JwtService;
 import com.example.case_md6.config.service.UserService;
 import com.example.case_md6.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 
@@ -39,6 +40,27 @@ public class AuthController {
         UserDetails userDetails = (UserDetails) authentication.getPrincipal();
         User currentUser = userService.findByUsername(user.getUserName());
         return ResponseEntity.ok(new JwtResponse(currentUser.getId(), jwt, userDetails.getUsername(), userDetails.getUsername(), userDetails.getAuthorities()));
+    }
+    @GetMapping("/authen")
+    public ResponseEntity<?> author(@RequestHeader("Authorization") String token) {
+        if (token == null || !token.startsWith("Bearer ")) {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid token");
+        }
+
+        String jwtToken = token.substring(7); 
+
+        boolean isValid = jwtService.validateJwtToken(jwtToken);
+
+        if (isValid) {
+            return ResponseEntity.ok("Token is valid");
+        } else {
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Invalid token");
+        }
+    }
+    @GetMapping ("/logout")
+    public ResponseEntity<?> logout() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        return ResponseEntity.ok(new JwtResponse(null, jwtService.generateTokenLogin(authentication), null, null, null));
     }
 }
 

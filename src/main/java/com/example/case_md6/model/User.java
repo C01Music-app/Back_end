@@ -21,13 +21,13 @@ public class User {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //người dùng
     private Integer id;
-    private String name;
+//    private String name;
     private String userName;
     private String phone;
     private String email;
     private String password;
-    @Column(columnDefinition = "text")
-    private String img;
+//    @Column(columnDefinition = "text")
+//    private String img;
     @ManyToMany (fetch = FetchType.EAGER)
     private Set<Role> roles;
 
