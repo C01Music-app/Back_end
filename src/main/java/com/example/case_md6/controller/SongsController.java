@@ -55,12 +55,10 @@ public class SongsController {
         return new ResponseEntity<>(songs, HttpStatus.OK);
     }
 
-//    @GetMapping("/search")
-//    public ResponseEntity<?> searchArtistsByName(@RequestParam String name) {
-//        List<Songs> songsList = iSongsService.findSongsByName(name);
-//        return new ResponseEntity<>(songsList, HttpStatus.OK);
-//    }
-//
-//
+    @GetMapping("/search")
+    public ResponseEntity<?> searchArtistsByName(@RequestParam String name) {
+        List<Songs> songsList = iSongsService.findSongsByName(name);
+        return new ResponseEntity<>(songsList, HttpStatus.OK);
+    }
 
 }
