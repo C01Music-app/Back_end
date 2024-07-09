@@ -1,5 +1,6 @@
 package com.example.case_md6.controller;
 
+import com.example.case_md6.model.Artists;
 import com.example.case_md6.model.Songs;
 import com.example.case_md6.service.ISongsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -53,5 +54,13 @@ public class SongsController {
         iSongsService.detail(songs);
         return new ResponseEntity<>(songs, HttpStatus.OK);
     }
+
+//    @GetMapping("/search")
+//    public ResponseEntity<?> searchArtistsByName(@RequestParam String name) {
+//        List<Songs> songsList = iSongsService.findSongsByName(name);
+//        return new ResponseEntity<>(songsList, HttpStatus.OK);
+//    }
+//
+//
 
 }

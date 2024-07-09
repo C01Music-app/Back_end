@@ -71,4 +71,10 @@ public class AlbumController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<?> searchArtistsByName(@RequestParam String name) {
+        List<Album> albums = iAlbumService.findAlbumsByName(name);
+        return new ResponseEntity<>(albums, HttpStatus.OK);
+    }
+
 }
