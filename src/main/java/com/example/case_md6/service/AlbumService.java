@@ -1,6 +1,7 @@
 package com.example.case_md6.service;
 
 import com.example.case_md6.model.Album;
+import com.example.case_md6.model.Artists;
 import com.example.case_md6.model.Songs;
 import com.example.case_md6.repository.IAlbumRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,5 +41,9 @@ public class AlbumService implements IAlbumService{
         return iAlbumRepository.findAllByTitleContaining(pageable,name);
     }
 
+    @Override
+    public List<Album> findAlbumsByName(String name) {
+        return iAlbumRepository.findByTitleContainingIgnoreCase(name);
+    }
 
 }

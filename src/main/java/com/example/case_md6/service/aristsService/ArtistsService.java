@@ -26,8 +26,6 @@ public class ArtistsService implements IArtistsService {
         return artistsRepository.findAll();
     }
 
-
-
     @Override
     public Artists getArtistById(Integer id) {
         return artistsRepository.findById(id).get();
@@ -41,9 +39,7 @@ public class ArtistsService implements IArtistsService {
     }
 
     @Override
-    public Page<Artists> findArtistsByName(Pageable pageable, String name) {
-        return artistsRepository.findbyNamePage(pageable,"%"+name+"%");
+    public List<Artists> findArtistsByName(String name) {
+        return artistsRepository.findByNameContainingIgnoreCase(name);
     }
-
-
 }

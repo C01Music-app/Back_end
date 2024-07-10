@@ -77,13 +77,12 @@ public class SecurityConfig {
 //
 //
                         .requestMatchers(HttpMethod.GET, "/user").hasAnyAuthority("ADMIN")
+                        .requestMatchers(HttpMethod.GET, "/user/find/**").hasAnyAuthority("ADMIN","USER")
                         .requestMatchers(HttpMethod.GET, "/user/search/*").permitAll()
                         .requestMatchers(HttpMethod.POST, "/user/**").permitAll()
-                        .requestMatchers(HttpMethod.PUT, "/user/**").hasAnyAuthority("USER")
+                        .requestMatchers(HttpMethod.PUT, "/user/**").hasAnyAuthority("USER","ADMIN")
                                 .requestMatchers("/**").permitAll()
 //
-
-
 
 
                 )

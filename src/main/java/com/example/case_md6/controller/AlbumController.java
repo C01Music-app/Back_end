@@ -1,6 +1,7 @@
 package com.example.case_md6.controller;
 
 import com.example.case_md6.model.Album;
+import com.example.case_md6.model.Artists;
 import com.example.case_md6.model.Songs;
 import com.example.case_md6.service.IAlbumService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +21,6 @@ public class AlbumController {
     @Autowired
     private IAlbumService iAlbumService;
 
-    //    @GetMapping("")
-//    public ResponseEntity<?> showAlbum() {
-//        List<Album> albumList = iAlbumService.getAll();
-//        System.out.println(albumList);
-//        return new ResponseEntity<>(albumList, HttpStatus.OK);
-//    }
-//    @GetMapping("")
-//    public ResponseEntity<?> oke() {
-//
-//        return null;
-//    }
 
     @GetMapping("")
     public ResponseEntity<?> showAlbum(@RequestParam(defaultValue = "0") int page,
@@ -74,5 +64,10 @@ public class AlbumController {
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
+    @GetMapping("/search")
+    public ResponseEntity<?> searchArtistsByName(@RequestParam String name) {
+        List<Album> albums = iAlbumService.findAlbumsByName(name);
+        return new ResponseEntity<>(albums, HttpStatus.OK);
+    }
 
 }

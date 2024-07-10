@@ -21,4 +21,6 @@ public interface ISongsService {
 
     void detail(Songs songs);
 
+    List<Songs> findSongsByName(String name);
+
 }
