@@ -24,6 +24,7 @@ public class Songs {
     @Column(columnDefinition = "text")
     private String imgSongs;
     private String title;
+
     private String artist;
 
 

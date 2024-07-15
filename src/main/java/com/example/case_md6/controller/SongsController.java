@@ -21,7 +21,7 @@ public class SongsController {
     @Autowired
     private ISongsService iSongsService;
 
-//    @GetMapping("")
+//    @GetMapping("/list")
 //    public ResponseEntity<?> showSongs(@RequestParam(defaultValue = "0") int page,
 //                                       @RequestParam(defaultValue = "") String name) {
 //        Pageable pageable = PageRequest.of(page, 5);
